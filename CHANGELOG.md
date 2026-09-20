@@ -2,6 +2,21 @@
 
 All notable changes to `komma-softhouse/filament-eesti-billing` are documented here. The format follows Keep a Changelog and the project follows SemVer.
 
+## [1.1.1] - 2026-09-20
+
+### Fixed
+
+- `migrate` on a host without spatie/laravel-settings no longer fails: the plugin creates the `settings` table when it is missing, before its settings migrations run.
+
+## v1.1.0 - 2026-09-20
+
+### What's Changed
+
+* Signing settings page, register lookup, masked inputs, series preview by @edeoliv in https://github.com/komma-softhouse/filament-eesti-billing/pull/4
+* 1.1.0 docs and screenshots by @edeoliv in https://github.com/komma-softhouse/filament-eesti-billing/pull/5
+
+**Full Changelog**: https://github.com/komma-softhouse/filament-eesti-billing/compare/v1.0.1...v1.1.0
+
 ## [1.1.0] - 2026-09-20
 
 ### Added
