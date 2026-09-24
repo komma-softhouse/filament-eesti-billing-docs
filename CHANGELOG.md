@@ -2,6 +2,18 @@
 
 All notable changes to `komma-softhouse/filament-eesti-billing` are documented here. The format follows Keep a Changelog and the project follows SemVer.
 
+## [1.2.0] - 2026-09-24
+
+### Removed
+
+- The runtime licence check: the daily call to the licence server, the licence banner, the grace period and the pause in issuing. The licence is enforced where it is sold — access to the private Composer repository, which gates every install and update.
+- The `eesti_license_state` table, dropped by a new migration, and `PermissionGate::LICENSED_ABILITIES`.
+- The licence line in `eesti:selftest`.
+
+### Deprecated
+
+- `eesti:license` does nothing and exits successfully, so schedules that call it keep running. `LicenseExpiredException` is no longer thrown. Both are removed in 2.0.
+
 ## [1.1.1] - 2026-09-20
 
 ### Fixed
