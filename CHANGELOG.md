@@ -2,40 +2,51 @@
 
 All notable changes to `komma-softhouse/filament-eesti-billing` are documented here. The format follows Keep a Changelog and the project follows SemVer.
 
-## [1.2.0] - 2026-09-24
+## [v1.2.3] - 2026-11-07
 
-### Removed
+### Added
 
-- The runtime licence check: the daily call to the licence server, the licence banner, the grace period and the pause in issuing. The licence is enforced where it is sold — access to the private Composer repository, which gates every install and update.
-- The `eesti_license_state` table, dropped by a new migration, and `PermissionGate::LICENSED_ABILITIES`.
-- The licence line in `eesti:selftest`.
+- Reverse-charge invoices show, under the «Reverse charge» mention, a short line in the customer's language explaining that the customer accounts for the VAT.
 
-### Deprecated
+## [v1.2.2] - 2026-10-08
 
-- `eesti:license` does nothing and exits successfully, so schedules that call it keep running. `LicenseExpiredException` is no longer thrown. Both are removed in 2.0.
+### Changed
 
-## [1.1.1] - 2026-09-20
+- Requires `laravel/ai` ^1.0.
+
+## [v1.2.1] - 2026-10-08
+
+### Added
+
+- Support for `laravel/ai` v1.
+
+## [v1.2.0] - 2026-09-24
+
+### Changed
+
+- The licence is validated when the plugin is installed or updated through Composer; issuing documents no longer depends on a daily online check.
 
 ### Fixed
 
-- `migrate` on a host without spatie/laravel-settings no longer fails: the plugin creates the `settings` table when it is missing, before its settings migrations run.
+- `migrate` creates the settings table when the host application does not have one.
 
-## v1.1.0 - 2026-09-20
+### Deprecated
 
-### What's Changed
+- The `eesti:license` command does nothing and exits successfully, so existing schedules keep running. It is removed in 2.0.
 
-* Signing settings page, register lookup, masked inputs, series preview by @edeoliv in https://github.com/komma-softhouse/filament-eesti-billing/pull/4
-* 1.1.0 docs and screenshots by @edeoliv in https://github.com/komma-softhouse/filament-eesti-billing/pull/5
+## [v1.1.1] - 2026-09-20
 
-**Full Changelog**: https://github.com/komma-softhouse/filament-eesti-billing/compare/v1.0.1...v1.1.0
+### Fixed
 
-## [1.1.0] - 2026-09-20
+- `migrate` on a host without spatie/laravel-settings no longer fails: the plugin creates the `settings` table before its settings migrations run.
+
+## [v1.1.0] - 2026-09-20
 
 ### Added
 
 - Signing settings page in the panel: ways offered, Smart-ID and Mobile-ID relying-party credentials stored encrypted, demo or production environment, a test-connection button per service, and the trust services (time-stamp, OCSP). The configuration file remains a fallback.
 - The Web eID JavaScript library ships as a plugin asset; the sign dialog checks the secure context and the extension before asking for the card, validates the personal code and the phone, and names what is missing.
-- Business Register lookup reads the public company page as a second source: address, city and postal code parsed from the Estonian format, e-mail, phone, website, VAT number and whether the company receives e-invoices.
+- Business Register lookup reads the public company page as a second source: address, city and postal code, e-mail, phone, website, VAT number and whether the company receives e-invoices.
 - Input masks on registry codes, VAT numbers, IBAN, BIC, postal codes, phones and personal codes: characters that can never be valid are refused while typing and cleaned on paste.
 - Live preview on numbering series of the next number and the payment reference it will carry.
 - Estonian and international carriers on delivery notes and repair orders: Omniva, DPD, Smartpost, Venipak, DHL, UPS, FedEx, GLS.
@@ -50,26 +61,15 @@ All notable changes to `komma-softhouse/filament-eesti-billing` are documented h
 ### Fixed
 
 - Dashboard widget errors from the expense ledger.
-- Sign action hidden by an operator-precedence bug.
-- A stray copy of the register client under `src/EestiBilling` is removed.
+- The sign action was hidden in some cases.
 
-## v1.0.1 - 2026-09-19
+## [v1.0.1] - 2026-09-19
 
-### What's Changed
+### Fixed
 
-* Fix migration order and the repair-tables migration by @edeoliv in https://github.com/komma-softhouse/filament-eesti-billing/pull/3
+- Migration order, and the migration of the repair tables.
 
-**Full Changelog**: https://github.com/komma-softhouse/filament-eesti-billing/compare/v1.0.0...v1.0.1
-
-## v1.0.0 - 2026-09-19
-
-### What's Changed
-
-* Full scope for 1.0.0: complete Estonian fiscal document engine by @edeoliv in https://github.com/komma-softhouse/filament-eesti-billing/pull/2
-
-**Full Changelog**: https://github.com/komma-softhouse/filament-eesti-billing/compare/v0.1.0...v1.0.0
-
-## [1.0.0] - 2026-09-17
+## [v1.0.0] - 2026-09-17
 
 ### Added
 
@@ -84,13 +84,13 @@ All notable changes to `komma-softhouse/filament-eesti-billing` are documented h
 - Template designer for A4 and receipt paper with live preview, watermark, colours and labels; document language Estonian, English, Russian or Spanish.
 - PDF through mPDF or Gotenberg, chosen explicitly; ESC/POS receipts and the print agent; Z/X reports and movements.
 - Received invoices and expenses, by hand or from a photo (OCR), feeding input VAT and INF B.
-- Audit trail, permissions per action with Gate override, licence guard, self-test command.
+- Audit trail, permissions per action with Gate override, self-test command.
 
 ### Removed
 
 - Everything Spain-specific from the 0.1.0 line: the standalone invoice resource is replaced by the document cycle.
 
-## [0.1.0] - 2026-09-17
+## [v0.1.0] - 2026-09-17
 
 ### Added
 
