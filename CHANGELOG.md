@@ -2,6 +2,20 @@
 
 All notable changes to `komma-softhouse/filament-eesti-billing` are documented here. The format follows Keep a Changelog and the project follows SemVer.
 
+## [v1.2.4] - 2026-11-07
+
+### Fixed
+
+- Documents can be downloaded as PDF and sent by email again.
+
+## v1.2.3 - 2026-11-07
+
+### What's Changed
+
+* Reverse charge explanatory line by @edeoliv in https://github.com/komma-softhouse/filament-eesti-billing/pull/11
+
+**Full Changelog**: https://github.com/komma-softhouse/filament-eesti-billing/compare/v1.2.2...v1.2.3
+
 ## [v1.2.3] - 2026-11-07
 
 ### Added
